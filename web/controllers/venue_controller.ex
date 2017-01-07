@@ -29,7 +29,7 @@ defmodule Suggestotron.VenueController do
   end
 
   def show(conn, %{"id" => id}) do
-    venue = Repo.get!(Venue, id)
+    venue = Repo.get!(Venue, id) |> Repo.preload(:categories)
     render(conn, "show.html", venue: venue)
   end
 

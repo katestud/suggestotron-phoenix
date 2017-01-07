@@ -2,6 +2,8 @@ defmodule Suggestotron.Category do
   use Suggestotron.Web, :model
 
   schema "categories" do
+    many_to_many :venues, Suggestotron.Venue, join_through: "categories_venues"
+
     field :name, :string
 
     timestamps()
@@ -14,5 +16,11 @@ defmodule Suggestotron.Category do
     struct
     |> cast(params, [:name])
     |> validate_required([:name])
+  end
+
+  defimpl Phoenix.Param do
+    def to_param(%{name: name}) do
+      to_string(name)
+    end
   end
 end

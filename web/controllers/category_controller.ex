@@ -26,33 +26,13 @@ defmodule Suggestotron.CategoryController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    category = Repo.get!(Category, id)
-    render(conn, "show.html", category: category)
+  def show(conn, %{"name" => name}) do
+    category = Repo.get_by!(Category, name: name) |> Repo.preload(:venues)
+    render(conn, :show, category: category)
   end
 
-  def edit(conn, %{"id" => id}) do
-    category = Repo.get!(Category, id)
-    changeset = Category.changeset(category)
-    render(conn, "edit.html", category: category, changeset: changeset)
-  end
-
-  def update(conn, %{"id" => id, "category" => category_params}) do
-    category = Repo.get!(Category, id)
-    changeset = Category.changeset(category, category_params)
-
-    case Repo.update(changeset) do
-      {:ok, category} ->
-        conn
-        |> put_flash(:info, "Category updated successfully.")
-        |> redirect(to: category_path(conn, :show, category))
-      {:error, changeset} ->
-        render(conn, "edit.html", category: category, changeset: changeset)
-    end
-  end
-
-  def delete(conn, %{"id" => id}) do
-    category = Repo.get!(Category, id)
+  def delete(conn, %{"name" => name}) do
+    category = Repo.get_by!(Category, name: name)
 
     # Here we use delete! (with a bang) because we expect
     # it to always work (and if it does not, it will raise).

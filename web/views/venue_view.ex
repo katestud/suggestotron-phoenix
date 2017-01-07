@@ -11,7 +11,7 @@ defmodule Suggestotron.VenueView do
   defp mapped_categories(categories) do
     case categories do
       nil -> ''
-      _ -> Enum.map(categories, fn(c) -> c.name end ) |> Enum.join(",")
+      _ -> Enum.map(categories, fn(c) -> c.name end ) |> Enum.join(", ")
     end
   end
 

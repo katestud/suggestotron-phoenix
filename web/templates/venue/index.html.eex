@@ -1,4 +1,4 @@
-<h2>Listing venues</h2>
+<h2>Venue List</h2>
 
 <table class="table">
   <thead>
@@ -13,12 +13,11 @@
   <tbody>
 <%= for venue <- @venues do %>
     <tr>
-      <td><%= venue.name %></td>
+      <td><%= link venue.name, to: venue_path(@conn, :show, venue) %></td>
       <td><%= venue.location %></td>
       <td><%= venue.description %></td>
 
       <td class="text-right">
-        <%= link "Show", to: venue_path(@conn, :show, venue), class: "btn btn-default btn-xs" %>
         <%= link "Edit", to: venue_path(@conn, :edit, venue), class: "btn btn-default btn-xs" %>
         <%= link "Delete", to: venue_path(@conn, :delete, venue), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
       </td>

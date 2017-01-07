@@ -1,13 +1,15 @@
-<h2>Show category</h2>
+<h2>Category: <%= @category.name %></h2>
 
+<h3>Associated Venues</h3>
+
+<table class="table">
+  <tbody>
 <ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @category.name %>
-  </li>
-
+  <%= for venue <- @category.venues do %>
+    <li>
+      <%= link venue.name, to: venue_path(@conn, :show, venue) %>
+    </li>
+  <% end %>
 </ul>
 
-<%= link "Edit", to: category_path(@conn, :edit, @category) %>
 <%= link "Back", to: category_path(@conn, :index) %>

@@ -2,7 +2,7 @@ defmodule Suggestotron.Venue do
   use Suggestotron.Web, :model
 
   schema "venues" do
-    many_to_many :categories, Suggestotron.Category, join_through: "categories_venues", on_replace: :delete
+    many_to_many :categories, Suggestotron.Category, join_through: "categories_venues", on_replace: :delete, on_delete: :delete_all
 
     field :name, :string
     field :location, :string
