@@ -1,5 +1,6 @@
 defmodule Suggestotron.Router do
   use Suggestotron.Web, :router
+  use Addict.RoutesHelper
 
   pipeline :browser do
     plug :accepts, ~w(html json)
@@ -19,6 +20,11 @@ defmodule Suggestotron.Router do
     get "/", VenueController, :index
     resources "/venues", VenueController
     resources "/categories", CategoryController, param: "name"
+    resources "/users", UserController
+  end
+
+  scope "/" do
+    addict :routes
   end
 
   # Other scopes may use custom stacks.

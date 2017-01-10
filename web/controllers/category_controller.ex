@@ -1,6 +1,8 @@
 defmodule Suggestotron.CategoryController do
   use Suggestotron.Web, :controller
 
+  plug Addict.Plugs.Authenticated when action in [:index, :new, :create, :delete]
+
   alias Suggestotron.Category
 
   def index(conn, _params) do

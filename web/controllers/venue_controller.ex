@@ -1,6 +1,8 @@
 defmodule Suggestotron.VenueController do
   use Suggestotron.Web, :controller
 
+  plug Addict.Plugs.Authenticated when action in [:index, :new, :create, :show, :edit, :delete]
+
   alias Suggestotron.Venue
 
   def index(conn, _params) do
