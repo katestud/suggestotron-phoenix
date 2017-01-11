@@ -24,7 +24,8 @@ defmodule Suggestotron.Router do
   end
 
   scope "/" do
-    addict :routes
+    addict :routes,
+      register: "/"
   end
 
   # Other scopes may use custom stacks.
