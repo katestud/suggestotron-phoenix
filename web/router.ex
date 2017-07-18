@@ -12,6 +12,10 @@ defmodule Suggestotron.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    if Mix.env == :prod do
+      plug LessVerifiesAlexa.Plug, application_id:
+        Application.get_env(:phoenix_alexa, :application_id)
+    end
   end
 
   scope "/", Suggestotron do
@@ -23,13 +27,14 @@ defmodule Suggestotron.Router do
     resources "/users", UserController
   end
 
+  scope "/command", Suggestotron do
+    pipe_through :api
+    post "/", AlexaController, :command
+  end
+
   scope "/" do
     addict :routes,
       register: "/"
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Suggestotron do
-  #   pipe_through :api
-  # end
 end

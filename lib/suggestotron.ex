@@ -6,6 +6,8 @@ defmodule Suggestotron do
   def start(_type, _args) do
     import Supervisor.Spec
 
+    :ets.new(:session, [:named_table, :public, read_concurrency: true])
+
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
