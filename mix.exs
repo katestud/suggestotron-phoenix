@@ -19,7 +19,7 @@ defmodule Suggestotron.Mixfile do
   def application do
     [mod: {Suggestotron, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :phoenix_alexa]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,6 +39,8 @@ defmodule Suggestotron.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:addict, "~> 0.3"},
+     {:phoenix_alexa, "~> 0.2.0"},
+     {:less_verifies_alexa, "~> 0.1.0"},
      {:mailgun, github: "chrismccord/mailgun", branch: "master", override: true}]
   end
 
