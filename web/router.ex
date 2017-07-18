@@ -13,9 +13,8 @@ defmodule Suggestotron.Router do
   pipeline :api do
     plug :accepts, ["json"]
     if Mix.env == :prod do
-      plug ValidateApplicationId, System.get_env("ALEXA_APPLICATION_ID")
-      # plug LessVerifiesAlexa.Plug, application_id:
-      #   System.get_env("ALEXA_APPLICATION_ID")
+      plug LessVerifiesAlexa.Plug, application_id:
+        System.get_env("ALEXA_APPLICATION_ID")
     end
   end
 

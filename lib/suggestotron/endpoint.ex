@@ -23,7 +23,7 @@ defmodule Suggestotron.Endpoint do
   plug Plug.Logger
 
   plug Plug.Parsers,
-    parsers: [:urlencoded, :multipart, :json],
+    parsers: [:alexajson, :urlencoded, :multipart],
     pass: ["*/*"],
     json_decoder: Poison
 
