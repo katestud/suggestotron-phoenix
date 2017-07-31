@@ -10,7 +10,7 @@ defmodule Suggestotron.AlexaController do
   end
   def intent_request(conn, "GetDifferentVenueIntent", request) do
     Logger.info "Processing GetDifferentVenues"
-    search_results = request.session.attributes.search_results
+    search_results = request.session.attributes['search_results']
     {suggested_venue, remaining_venues} = AlexaResponses.get_venues(search_results)
     return_response(conn, suggested_venue, remaining_venues)
   end
