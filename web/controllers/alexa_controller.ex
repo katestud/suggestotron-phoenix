@@ -22,7 +22,7 @@ defmodule Suggestotron.AlexaController do
     response =
       %Response{}
       |> set_output_speech(%TextOutputSpeech{text: text})
-      |> set_should_end_session(true)
+      |> set_should_end_session(false)
 
     conn |> set_response(response)
   end
