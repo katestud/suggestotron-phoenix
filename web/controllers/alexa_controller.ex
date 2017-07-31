@@ -3,10 +3,12 @@ defmodule Suggestotron.AlexaController do
   use PhoenixAlexa.Controller, :command
 
   def intent_request(conn, "GetVenuesIntent", request) do
+    Logger.info "Processing GetVenues"
     {suggested_venue, remaining_venues} = AlexaResponses.get_venues(request)
     return_response(conn, suggested_venue, remaining_venues)
   end
   def intent_request(conn, "GetDifferentVenueIntent", request) do
+    Logger.info "Processing GetDifferentVenues"
     search_results = conn |> fetch_session |> get_session(:search_results)
     {suggested_venue, remaining_venues} = AlexaResponses.get_venues(search_results)
     return_response(conn, suggested_venue, remaining_venues)
