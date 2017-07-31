@@ -3,10 +3,14 @@ defmodule Suggestotron.AlexaController do
   use PhoenixAlexa.Controller, :command
   require Logger
 
+  def launch_request(conn, _request) do
+    conn |> return_response("What are you in the mood for?", false)
+  end
+
   def intent_request(conn, "GetVenuesIntent", request) do
     Logger.info "Processing GetVenues"
     {suggested_venue, remaining_venues} = AlexaResponses.get_venues(request)
-    return_response(conn, suggested_venue, remaining_venues)
+    conn |> return_response(suggested_venue, remaining_venues)
   end
   def intent_request(conn, "GetDifferentVenueIntent", request) do
     Logger.info "Processing GetDifferentVenues"
@@ -15,19 +19,14 @@ defmodule Suggestotron.AlexaController do
     return_response(conn, suggested_venue, remaining_venues)
   end
   def intent_request(conn, _intent, _request) do
-    return_response(conn, "Sorry, I didn't understand that request.")
+    conn |> return_response("Sorry, I didn't understand that request.")
+  end
+
+  def session_ended_request(conn, request) do
+    conn |> return_response("Thanks for using Suggestotron. Bye!")
   end
 
   defp return_response(conn, text) do
-    response =
-      %Response{}
-      |> set_output_speech(%TextOutputSpeech{text: text})
-      |> set_should_end_session(false)
-
-    conn |> set_response(response)
-  end
-
-  defp return_response(conn, text, []) do
     response =
       %Response{}
       |> set_output_speech(%TextOutputSpeech{text: text})
@@ -35,7 +34,16 @@ defmodule Suggestotron.AlexaController do
 
     conn |> set_response(response)
   end
+  defp return_response(conn, text, []) do
+    return_response(conn, text)
+  end
+  defp return_response(conn, text, false) do
+    response =
+      %Response{}
+      |> set_output_speech(%TextOutputSpeech{text: text})
 
+    conn |> set_response(response)
+  end
   defp return_response(conn, text, search_results) do
     response =
       %Response{}
