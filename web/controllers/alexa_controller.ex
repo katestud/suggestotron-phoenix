@@ -37,12 +37,12 @@ defmodule Suggestotron.AlexaController do
   end
 
   defp return_response(conn, text, search_results) do
-    conn = conn |> fetch_session |> put_session(:search_results, search_results)
-    IO.inspect conn |> fetch_session |> get_session(:search_results)
+    # conn = conn |> fetch_session |> put_session(:search_results, search_results)
+    # IO.inspect conn |> fetch_session |> get_session(:search_results)
     response =
       %Response{}
       |> set_output_speech(%TextOutputSpeech{text: text})
-      # |> set_session_attributes(search_results)
+      |> set_session_attributes(%{search_results: search_results})
 
     conn |> set_response(response)
   end
