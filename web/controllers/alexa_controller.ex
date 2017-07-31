@@ -22,10 +22,6 @@ defmodule Suggestotron.AlexaController do
     conn |> return_response("Sorry, I didn't understand that request.")
   end
 
-  def session_ended_request(conn, request) do
-    conn |> return_response("Thanks for using Suggestotron. Bye!")
-  end
-
   defp return_response(conn, text) do
     response =
       %Response{}
