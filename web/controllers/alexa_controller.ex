@@ -1,6 +1,7 @@
 defmodule Suggestotron.AlexaController do
   use Suggestotron.Web, :controller
   use PhoenixAlexa.Controller, :command
+  require Logger
 
   def intent_request(conn, "GetVenuesIntent", request) do
     Logger.info "Processing GetVenues"
