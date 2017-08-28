@@ -1,11 +1,9 @@
 defmodule AlexaResponses do
 
-  @error_response "Sorry, I'm not able to process that request."
-
-  def get_venues([]) do
+  def get_venues(nil) do
     {"Sorry, there were no more results.", []}
   end
-  def get_venues(nil) do
+  def get_venues([]) do
     {"Sorry, there were no results for that category.", []}
   end
   def get_venues(
@@ -28,9 +26,6 @@ defmodule AlexaResponses do
   def get_venues(search_results) do
     [suggestion | remaining] = search_results
     {construct_suggestion(suggestion), remaining}
-  end
-  def get_venues(_) do
-    @error_response
   end
 
   def construct_suggestion(venue) do
