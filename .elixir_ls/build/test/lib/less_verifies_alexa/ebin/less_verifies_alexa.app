@@ -1,0 +1,11 @@
+{application,less_verifies_alexa,
+             [{applications,[kernel,stdlib,elixir,logger,certifi,httpotion,
+                             plug]},
+              {description,"A plug that validates requests from Amazon's Alexa service."},
+              {modules,['Elixir.LessVerifiesAlexa',
+                        'Elixir.LessVerifiesAlexa.Certificate',
+                        'Elixir.LessVerifiesAlexa.FakeHTTPotion',
+                        'Elixir.LessVerifiesAlexa.Plug',
+                        'Elixir.Plug.Parsers.ALEXAJSON']},
+              {registered,[]},
+              {vsn,"0.1.0"}]}.
