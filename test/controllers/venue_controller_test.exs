@@ -1,5 +1,5 @@
-defmodule Suggestotron.VenueControllerTest do
-  use Suggestotron.ConnCase
+defmodule SuggestotronWeb.VenueControllerTest do
+  use SuggestotronWeb.ConnCase
 
   alias Suggestotron.Venue
   @valid_attrs %{description: "some content", location: "some content", name: "some content"}

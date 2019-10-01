@@ -1,5 +1,5 @@
-defmodule Suggestotron.ErrorView do
-  use Suggestotron.Web, :view
+defmodule SuggestotronWeb.ErrorView do
+  use SuggestotronWeb, :view
 
   def render("404.html", _assigns) do
     "Page not found"

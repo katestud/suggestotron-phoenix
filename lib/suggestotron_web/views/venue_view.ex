@@ -1,5 +1,5 @@
 defmodule Suggestotron.VenueView do
-  use Suggestotron.Web, :view
+  use SuggestotronWeb, :view
 
   def category_list(venue) do
     case venue.id do

@@ -1,5 +1,5 @@
-defmodule Suggestotron.CategoryControllerTest do
-  use Suggestotron.ConnCase
+defmodule SuggestotronWeb.CategoryControllerTest do
+  use SuggestotronWeb.ConnCase
 
   alias Suggestotron.Category
   @valid_attrs %{name: "some content"}

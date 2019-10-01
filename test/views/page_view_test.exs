@@ -1,3 +1,3 @@
-defmodule Suggestotron.PageViewTest do
-  use Suggestotron.ConnCase, async: true
+defmodule SuggestotronWeb.PageViewTest do
+  use SuggestotronWeb.ConnCase, async: true
 end

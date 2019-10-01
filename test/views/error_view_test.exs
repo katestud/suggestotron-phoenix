@@ -1,16 +1,16 @@
-defmodule Suggestotron.ErrorViewTest do
-  use Suggestotron.ConnCase, async: true
+defmodule SuggestotronWeb.ErrorViewTest do
+  use SuggestotronWeb.ConnCase, async: true
 
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
 
   test "renders 404.html" do
-    assert render_to_string(Suggestotron.ErrorView, "404.html", []) ==
+    assert render_to_string(SuggestotronWeb.ErrorView, "404.html", []) ==
            "Page not found"
   end
 
   test "render 500.html" do
-    assert render_to_string(Suggestotron.ErrorView, "500.html", []) ==
+    assert render_to_string(SuggestotronWeb.ErrorView, "500.html", []) ==
            "Internal server error"
   end
 

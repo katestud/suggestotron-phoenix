@@ -1,5 +1,5 @@
-defmodule Suggestotron.UserController do
-  use Suggestotron.Web, :controller
+defmodule SuggestotronWeb.UserController do
+  use SuggestotronWeb, :controller
 
   alias Suggestotron.User
 

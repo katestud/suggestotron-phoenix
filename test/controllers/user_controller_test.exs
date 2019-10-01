@@ -1,5 +1,5 @@
-defmodule Suggestotron.UserControllerTest do
-  use Suggestotron.ConnCase
+defmodule SuggestotronWeb.UserControllerTest do
+  use SuggestotronWeb.ConnCase
 
   alias Suggestotron.User
   @valid_attrs %{email: "some content", encrypted_password: "some content"}

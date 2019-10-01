@@ -1,5 +1,5 @@
-defmodule Suggestotron.AlexaController do
-  use Suggestotron.Web, :controller
+defmodule SuggestotronWeb.AlexaController do
+  use SuggestotronWeb, :controller
   use PhoenixAlexa.Controller, :command
   require Logger
 

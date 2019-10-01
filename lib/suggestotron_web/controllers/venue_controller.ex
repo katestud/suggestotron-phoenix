@@ -1,5 +1,5 @@
-defmodule Suggestotron.VenueController do
-  use Suggestotron.Web, :controller
+defmodule SuggestotronWeb.VenueController do
+  use SuggestotronWeb, :controller
 
   plug Addict.Plugs.Authenticated when action in [:index, :new, :create, :show, :edit, :delete]
 

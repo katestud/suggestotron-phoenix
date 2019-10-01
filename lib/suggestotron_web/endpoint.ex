@@ -1,7 +1,7 @@
-defmodule Suggestotron.Endpoint do
+defmodule SuggestotronWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :suggestotron
 
-  socket "/socket", Suggestotron.UserSocket
+  socket "/socket", SuggestotronWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -39,5 +39,5 @@ defmodule Suggestotron.Endpoint do
     table: :session,
     signing_salt: "9NC7x6YH"
 
-  plug Suggestotron.Router
+  plug SuggestotronWeb.Router
 end

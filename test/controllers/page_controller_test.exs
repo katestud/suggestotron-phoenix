@@ -1,5 +1,5 @@
-defmodule Suggestotron.PageControllerTest do
-  use Suggestotron.ConnCase
+defmodule SuggestotronWeb.PageControllerTest do
+  use SuggestotronWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

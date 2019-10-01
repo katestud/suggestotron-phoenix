@@ -1,5 +1,5 @@
 defmodule Suggestotron.Category do
-  use Suggestotron.Web, :model
+  use SuggestotronWeb, :model
 
   schema "categories" do
     many_to_many :venues, Suggestotron.Venue, join_through: "categories_venues"

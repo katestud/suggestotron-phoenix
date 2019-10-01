@@ -1,4 +1,4 @@
-defmodule Suggestotron.ErrorHelpers do
+defmodule SuggestotronWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule Suggestotron.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(Suggestotron.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(SuggestotronWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Suggestotron.Gettext, "errors", msg, opts)
+      Gettext.dgettext(SuggestotronWeb.Gettext, "errors", msg, opts)
     end
   end
 end

@@ -1,4 +1,4 @@
-defmodule Suggestotron do
+defmodule Suggestotron.Application do
   use Application
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
@@ -13,7 +13,7 @@ defmodule Suggestotron do
       # Start the Ecto repository
       supervisor(Suggestotron.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(Suggestotron.Endpoint, []),
+      supervisor(SuggestotronWeb.Endpoint, []),
       # Start your own worker by calling: Suggestotron.Worker.start_link(arg1, arg2, arg3)
       # worker(Suggestotron.Worker, [arg1, arg2, arg3]),
     ]
@@ -27,7 +27,7 @@ defmodule Suggestotron do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Suggestotron.Endpoint.config_change(changed, removed)
+    SuggestotronWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

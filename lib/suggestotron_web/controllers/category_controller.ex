@@ -1,5 +1,5 @@
-defmodule Suggestotron.CategoryController do
-  use Suggestotron.Web, :controller
+defmodule SuggestotronWeb.CategoryController do
+  use SuggestotronWeb, :controller
 
   plug Addict.Plugs.Authenticated when action in [:index, :new, :create, :delete]
 

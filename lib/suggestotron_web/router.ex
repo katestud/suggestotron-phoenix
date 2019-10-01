@@ -1,5 +1,5 @@
-defmodule Suggestotron.Router do
-  use Suggestotron.Web, :router
+defmodule SuggestotronWeb.Router do
+  use SuggestotronWeb, :router
   use Addict.RoutesHelper
 
   pipeline :browser do
@@ -18,7 +18,7 @@ defmodule Suggestotron.Router do
     end
   end
 
-  scope "/", Suggestotron do
+  scope "/", SuggestotronWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", VenueController, :index
@@ -27,7 +27,7 @@ defmodule Suggestotron.Router do
     resources "/users", UserController
   end
 
-  scope "/command", Suggestotron do
+  scope "/command", SuggestotronWeb do
     pipe_through :api
     post "/", AlexaController, :command
   end

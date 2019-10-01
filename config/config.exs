@@ -10,10 +10,10 @@ config :suggestotron,
   ecto_repos: [Suggestotron.Repo]
 
 # Configures the endpoint
-config :suggestotron, Suggestotron.Endpoint,
+config :suggestotron, SuggestotronWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "BCWg6W2lBcHx0+0wiePnrP7e8UVuglamZStkuXo6KpjpJYNfgPcepAiAE2T1LYVr",
-  render_errors: [view: Suggestotron.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: SuggestotronWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Suggestotron.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

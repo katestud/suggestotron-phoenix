@@ -1,4 +1,4 @@
-defmodule Suggestotron.ConnCase do
+defmodule SuggestotronWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -25,10 +25,10 @@ defmodule Suggestotron.ConnCase do
       import Ecto.Changeset
       import Ecto.Query
 
-      import Suggestotron.Router.Helpers
+      import SuggestotronWeb.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Suggestotron.Endpoint
+      @endpoint SuggestotronWeb.Endpoint
     end
   end
 

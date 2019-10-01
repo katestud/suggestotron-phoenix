@@ -1,5 +1,5 @@
 defmodule Suggestotron.CategoryView do
-  use Suggestotron.Web, :view
+  use SuggestotronWeb, :view
 
   def render("show.json", %{category: category}) do
     %{category: category_json(category)}

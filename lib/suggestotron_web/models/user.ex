@@ -1,5 +1,5 @@
 defmodule Suggestotron.User do
-  use Suggestotron.Web, :model
+  use SuggestotronWeb, :model
 
   schema "users" do
     field :email, :string
